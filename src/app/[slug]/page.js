@@ -16,8 +16,13 @@ export default async function Page({ params }) {
   const { data } = await getProductBySlug(slug);
   const images = JSON.parse(data.images);
 
+  const formatter = new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+  });
+
   return (
-    <div className="max-w-7xl m-auto space-y-6 mb-12">
+    <div className="max-w-5xl m-auto space-y-6 mb-12">
       <Header />
       <section className="flex justify-between items-end">
         <div>
@@ -26,11 +31,11 @@ export default async function Page({ params }) {
             {data.author.username} - {data.category}
           </div>
         </div>
-        <button className="w-fit">Add to cart ${data.price}</button>
+        <button className="w-fit">Add to cart {formatter.format(data.price)}</button>
       </section>
       <section className="grid grid-cols-2 gap-10">
         {images.map((image) => {
-          return <Image key={image} alt="Product Image" src={`${imageUrl}/${data.id}/${image}`} width={600} height={400} className="rounded-lg" />;
+          return <Image key={image} alt="Product Image" src={`${imageUrl}/${data.id}/${image}`} width={800} height={800} className="rounded-lg" />;
         })}
       </section>
       <section>

@@ -13,7 +13,7 @@ export const SearchBox = () => {
 
   function handlePushSearch(event) {
     if (event.code === "Enter") {
-      router.push(`?query=${query}`);
+      router.push(`/?query=${query}`);
     }
   }
 

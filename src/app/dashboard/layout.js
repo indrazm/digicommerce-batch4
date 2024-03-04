@@ -16,7 +16,7 @@ export default function Layout({ children }) {
 
   return (
     <div className="w-full h-screen py-20">
-      <main className="max-w-7xl  m-auto space-y-6">
+      <main className="max-w-5xl m-auto space-y-6">
         <header className="w-full flex justify-between items-center">
           <div className="font-bold text-lg tracking-tight ml-2">Digicommerce.</div>
           <div className="flex gap-2 items-center">

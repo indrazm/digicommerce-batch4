@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export const Home = ({ productData, totalProducts }) => {
   return (
-    <div className="max-w-7xl m-auto space-y-6 mb-12">
+    <div className="max-w-5xl m-auto space-y-6 mb-12">
       <Header />
       <section className="h-[320px] flex flex-col justify-center text-center ">
         <div className="space-y-4">
@@ -26,7 +26,7 @@ export const Home = ({ productData, totalProducts }) => {
           </div>
         </div>
       </section>
-      <section className="grid grid-cols-3 gap-10">
+      <section className="grid grid-cols-3 gap-8">
         {productData.map(({ id, slug, name, price, featuredImage }) => {
           return <HomeProductCard slug={slug} key={id} id={id} name={name} price={price} imageSrc={featuredImage} />;
         })}

@@ -15,8 +15,7 @@ export const Header = async () => {
   try {
     await jose.jwtVerify(token, encodedJwtSecret);
     isLoggedIn = true;
-  } catch (error) {
-    console.log({ error });
+  } catch (_) {
     isLoggedIn = false;
   }
 
