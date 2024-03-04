@@ -53,7 +53,7 @@ model Product {
   updatedAt DateTime @updatedAt
 
   comment Comment[]
-  order Order[]
+  orderedProduct OrderedProduct[]
 }
 
 model Comment {
@@ -67,12 +67,19 @@ model Comment {
 
 model Order {
   id String @id @default(cuid())
+  buyerId String
+  buyer User @relation(fields: [buyerId], references: [id])
+
+  orderedProduct OrderedProduct[]
+  review Review?
+}
+
+model OrderedProduct {
+  id String @id @default(cuid())
   productId String
   product Product @relation(fields: [productId], references: [id])
-  authorId String
-  author User @relation(fields: [authorId], references: [id])
-
-  review Review?
+  orderId String
+  order Order @relation(fields: [orderId], references: [id])
 }
 
 model Review {

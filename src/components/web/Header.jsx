@@ -3,6 +3,7 @@ import React from "react";
 import { cookies } from "next/headers";
 import * as jose from "jose";
 import { SearchBox } from "./SearchBox";
+import { CartIcon } from "./CartIcon";
 
 export const Header = async () => {
   let isLoggedIn = false;
@@ -31,9 +32,12 @@ export const Header = async () => {
         <div>Products</div>
         <div>Best-selling</div>
         {isLoggedIn ? (
-          <Link href="/dashboard">
-            <button className="w-fit">Dashboard</button>
-          </Link>
+          <div className="flex items-center gap-4">
+            <CartIcon />
+            <Link href="/dashboard">
+              <button className="w-fit">Dashboard</button>
+            </Link>
+          </div>
         ) : (
           <div className="flex items-center gap-4">
             <Link href="/login">
