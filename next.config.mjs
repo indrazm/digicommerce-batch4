@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "fakeimg.pl",
+        hostname: "digicommerce-batch4.s3.ap-southeast-1.amazonaws.com",
         port: "",
         pathname: "/**",
       },

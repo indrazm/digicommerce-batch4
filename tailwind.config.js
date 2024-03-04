@@ -4,6 +4,6 @@ module.exports = {
   theme: {},
   plugins: [require("daisyui")],
   daisyui: {
-    themes: ["fantasy"],
+    themes: ["bumblebee"],
   },
 };

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { siteUrl } from "@/config/siteUrl";
 
 export const Login = () => {
   const router = useRouter();
@@ -38,7 +39,8 @@ export const Login = () => {
     const { data, message } = await res.json();
     localStorage.setItem("user", JSON.stringify(data));
     toast.success(message);
-    router.push("/");
+    // router.push("/");
+    window.location.replace(siteUrl);
   }
 
   return (

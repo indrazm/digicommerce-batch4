@@ -1,8 +1,8 @@
 import { Home } from "@/components/web/Home";
 
-async function getProducts(queryValue) {
+async function getProductsByCategory(queryValue) {
   if (queryValue) {
-    const res = await fetch(`http://localhost:3000/api/v1/products?query=${queryValue}`);
+    const res = await fetch(`http://localhost:3000/api/v1/products?category=${queryValue}`);
     const data = await res.json();
     return data;
   }
@@ -17,9 +17,9 @@ async function getProductCount() {
   return data;
 }
 
-export default async function Page({ searchParams }) {
-  const query = searchParams.query;
-  const { data } = await getProducts(query);
+export default async function Page({ params }) {
+  const category = params.category;
+  const { data } = await getProductsByCategory(category);
   const { data: totalAllProducts } = await getProductCount();
 
   return <Home productData={data} totalProducts={totalAllProducts} />;
