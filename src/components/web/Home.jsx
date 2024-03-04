@@ -4,6 +4,8 @@ import Image from "next/image";
 import { EyeIcon, EyeOff } from "lucide-react";
 import { HomeProductCard } from "./ProductCard";
 import Link from "next/link";
+import Script from "next/script";
+import { PaymentBtn } from "./PaymentBtn";
 
 export const Home = ({ productData, totalProducts }) => {
   return (
@@ -23,6 +25,7 @@ export const Home = ({ productData, totalProducts }) => {
             <Link href={`/category/FONTS`}>
               <button className="w-fit btn-outline">Fonts</button>
             </Link>
+            <PaymentBtn />
           </div>
         </div>
       </section>
